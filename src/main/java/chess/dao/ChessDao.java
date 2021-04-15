@@ -29,7 +29,7 @@ public class ChessDao {
                  "INSERT INTO user (user_name, user_password) VALUES (?, ?)")
         ) {
             preparedStatement.setString(1, userDto.getName());
-            preparedStatement.setString(2, userDto.getPwd());
+            preparedStatement.setString(2, userDto.getPassword());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getErrorCode() + e.getMessage());
@@ -65,7 +65,7 @@ public class ChessDao {
                  "SELECT user_id FROM user WHERE user_name = ? AND user_password = ?")
         ) {
             preparedStatement.setString(1, userDto.getName());
-            preparedStatement.setString(2, userDto.getPwd());
+            preparedStatement.setString(2, userDto.getPassword());
             return makeUserId(preparedStatement);
         } catch (SQLException e) {
             System.out.println(e.getErrorCode() + e.getMessage());
